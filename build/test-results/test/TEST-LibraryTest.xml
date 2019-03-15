@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="LibraryTest" tests="2" skipped="0" failures="1" errors="0" timestamp="2019-02-24T15:17:43" hostname="tosh-TOSH" time="0.009">
+<testsuite name="LibraryTest" tests="2" skipped="0" failures="1" errors="0" timestamp="2019-03-08T08:25:51" hostname="DESKTOP-7FHV69F" time="0.003">
   <properties/>
-  <testcase name="testSomeLibraryMethod" classname="LibraryTest" time="0.005"/>
-  <testcase name="otraPrueba" classname="LibraryTest" time="0.003">
+  <testcase name="testSomeLibraryMethod" classname="LibraryTest" time="0.002"/>
+  <testcase name="otraPrueba" classname="LibraryTest" time="0.001">
     <failure message="java.lang.AssertionError: Un mensaje" type="java.lang.AssertionError">java.lang.AssertionError: Un mensaje
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.assertTrue(Assert.java:41)

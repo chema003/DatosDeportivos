@@ -18,7 +18,5 @@ public abstract class EventoImpl extends DatableImpl implements Evento {
 	public EventoImpl() {
 		super();
 	}
-	
-	
 
 }

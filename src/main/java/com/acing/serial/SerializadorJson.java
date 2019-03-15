@@ -80,7 +80,9 @@ public class SerializadorJson implements EventoDAO {
 	private static Collection<Partido> getEventosFromJson(Json json, String rutaArchivo) {
 		Collection<Partido> eventosLeidos = new ArrayList<>();
 		try (BufferedReader reader = new BufferedReader(
-				new InputStreamReader(new FileInputStream(rutaArchivo),"UTF-8"))){
+				new InputStreamReader(
+						new FileInputStream(rutaArchivo),
+						"UTF-8"))){
 			
 			String linea;
 			while((linea = reader.readLine()) != null) {

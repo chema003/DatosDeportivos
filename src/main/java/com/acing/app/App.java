@@ -1,8 +1,12 @@
 package com.acing.app;
 
 import java.util.Collection;
+import java.util.List;
+
+import javax.swing.JFrame;
 
 import com.acing.eventos.Partido;
+import com.acing.iu.EjemploJFrame;
 import com.acing.eventos.Evento;
 import com.acing.eventos.EventoDAO;
 import com.acing.serial.SerializadorCSV;
@@ -39,6 +43,9 @@ public class App {
 //							})
 				.forEach(d -> System.out.println(d));
 
+		EjemploJFrame frame = new EjemploJFrame();
+		frame.mostrarPartido((Partido) ((List)eventos).get(0));
+		frame.setVisible(true);
 	}
 
 }

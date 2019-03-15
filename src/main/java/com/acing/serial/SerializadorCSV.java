@@ -70,10 +70,14 @@ public class SerializadorCSV implements EventoDAO{
 //		String resultado = golesLocal + "-" + golesVisitante;
 		
 		Partido miEvento = new Partido(local, visitante, fecha);
-		miEvento.addGoles(golesLocal, golesVisitante);
+		
 //		miEvento.setResultado(resultado);
-//		addGoles(golesLocal, local, miEvento);
+		Suceso suceso = new Suceso();
+		miEvento.addSucesos(suceso.getClass(), golesLocal, local);
 //		addGoles(golesVisitante, visitante, miEvento);
+		miEvento.addSucesos(suceso.getClass(), golesVisitante, visitante);
+		
+//		miEvento.addSuceso(new TarjetaRoja());
 		
 		return miEvento;
 	}
@@ -85,7 +89,6 @@ public class SerializadorCSV implements EventoDAO{
 //			miEvento.addSuceso(gol);
 //		}
 //	}
-	//Este método aquí sobraría, no?? En todo caso su lugar es el gestor de sucesos.
 
 	
 	@Override
