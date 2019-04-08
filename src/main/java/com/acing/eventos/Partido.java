@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class Partido extends EventoImpl implements GestorSucesos {
 	private final static SimpleDateFormat sdfToString= new SimpleDateFormat("dd/MM/yy HH:mm");
-	private Participante local;
-	private Participante visitante;
+	public Participante local;
+	public Participante visitante;
 //	String resultado;
 	
 	@Override

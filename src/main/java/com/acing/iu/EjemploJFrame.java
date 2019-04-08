@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collection;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
@@ -15,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import com.acing.eventos.Participante;
 import com.acing.eventos.Partido;
 import com.acing.serial.SerializadorCSV;
 import com.esotericsoftware.tablelayout.Value;
@@ -25,14 +27,17 @@ public class EjemploJFrame extends JFrame {
 	private JComboBox cb_VariosTipos;
 	private JCheckBox ckb_ParaAlgo;
 	private JTextField txt_Input;
+	
+	Collection<Participante> participantes;
 
-	public EjemploJFrame() {
+	public EjemploJFrame(Collection<Participante> colParticipantes) {
 		super();
+		this.participantes = colParticipantes;
 		initialize();
 	}
 	
 	public static void main(String... args) {
-		JFrame prueba = new EjemploJFrame();
+		JFrame prueba = new EjemploJFrame(null);
 		prueba.setVisible(true);
 	}
 	
@@ -71,6 +76,7 @@ public class EjemploJFrame extends JFrame {
     		  	.getEventos().stream()
     		  	.map(e -> e.toString()).collect(Collectors.toList()).toArray());
     		  //new String[]{ "Primero", "Segundo" });
+//      cb_String = new JComboBox<>(participantes.toArray());
       
       //Para usarlo en el combobox de abajo
       Object objetoPersonalizado = new Object() {
@@ -85,16 +91,17 @@ public class EjemploJFrame extends JFrame {
       txt_Input = new JTextField();
       txt_Input.setText("Algo escrito para pruebas");
       
+      ActionListener al = new ActionListener() {
+  		@Override
+  		public void actionPerformed(ActionEvent e) {
+  			lbl_Resultado.setText("Pulsado " + ((JButton)e.getSource()).getText());
+  		}
+  	};
+      
     //Listeners
-      btn_1.addActionListener(new ActionListener() {
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			lbl_Resultado.setText("Pulsado " + ((JButton)e.getSource()).getText());
-		}
-	});
+      btn_1.addActionListener(al);
 //      btn_1.addActionListener(e -> lbl_Resultado.setText("Pulsado " + ((JButton)e.getSource()).getText().toString()));
-      btn_2.addActionListener(e -> lbl_Resultado.setText(validarInput()));
+      btn_2.addActionListener(al);//e -> lbl_Resultado.setText(validarInput()));
       
     //Layout (configuracion general)
       Table tabla = new Table();
